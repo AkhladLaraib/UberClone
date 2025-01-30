@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">UberClone</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_id">Kz5lsjFRJkM9jnF4mtSUYFsxZM9tjjs1udfHiA7f</string>
+    <string name="back4app_client_key">uTT9DuT3CaFCeyII0ZMRhM0PeH97B7FWiQtX1KhK</string>
+    <string name="logout">LOGOUT</string>
+    <string name="please_enter_your_username">Please enter your username...</string>
+    <string name="please_enter_your_password">Please enter your password...</string>
+    <string name="passenger">Passenger</string>
+    <string name="driver">Driver</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="don_t_want_to_sign_up_or_login">Don\'t want to Sign up or Login?</string>
+    <string name="are_you_a_driver_or_a_passenger">Are you a Driver or a Passenger?</string>
+    <string name="one_time_login">ONE TIME LOGIN</string>
+    <string name="login">LOGIN</string>
+    <string name="title_activity_passenger">PassengerActivity</string>
+    <string name="MAPS_API_KEY" templateMergeStrategy="preserve"
+        translatable="false">AIzaSyCH0um_MF7n-exW306OMne6nR3_UuX8DXY</string>
+    <string name="request_car">REQUEST CAR</string>
+    <string name="cancel_your_uber_request">Cancel Your Uber Request!!!</string>
+</resources>
