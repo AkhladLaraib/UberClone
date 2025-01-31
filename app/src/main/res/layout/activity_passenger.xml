@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <include layout="@layout/my_toolbar" />
+
+    <Button
+        android:id="@+id/btnLogoutFromPassengerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="5dp"
+        android:backgroundTint="#777373"
+        android:text="@string/logout"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="10dp" />
+
     <fragment
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".PassengerActivity" >
+        android:layout_height="800dp"
+        tools:context=".PassengerActivity" />
 
-        <Button
-            android:id="@+id/btnRequestCar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/request_car" />
+    <Button
+        android:id="@+id/btnRequestCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#777373"
+        android:text="@string/request_car"
+        app:cornerRadius="10dp" />
 
-    </fragment>
 </LinearLayout>

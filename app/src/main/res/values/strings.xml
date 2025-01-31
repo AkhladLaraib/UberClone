@@ -14,8 +14,9 @@
     <string name="one_time_login">ONE TIME LOGIN</string>
     <string name="login">LOGIN</string>
     <string name="title_activity_passenger">PassengerActivity</string>
-    <string name="MAPS_API_KEY" templateMergeStrategy="preserve"
-        translatable="false">AIzaSyCH0um_MF7n-exW306OMne6nR3_UuX8DXY</string>
+    <string name="MAPS_API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCH0um_MF7n-exW306OMne6nR3_UuX8DXY</string>
     <string name="request_car">REQUEST CAR</string>
     <string name="cancel_your_uber_request">Cancel Your Uber Request!!!</string>
+    <string name="update_the_list">UPDATE THE LIST</string>
+    <string name="passenger_list">Passenger List</string>
 </resources>

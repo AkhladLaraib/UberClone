@@ -1,6 +1,7 @@
 package com.example.uberclone;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -12,6 +13,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,8 +25,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.uberclone.databinding.ActivityPassengerBinding;
-import com.parse.DeleteCallback;
-import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -45,9 +46,7 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        binding = ActivityPassengerBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_passenger);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -68,6 +67,16 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
                 btnRequestCar.setText(R.string.cancel_your_uber_request);
             }
         });
+
+        findViewById(R.id.btnLogoutFromPassengerActivity).setOnClickListener(v -> {
+
+            ParseUser.logOutInBackground(e -> {
+
+                if (e == null) {
+                    finish();
+                }
+            });
+        });
     }
 
     /**
@@ -85,7 +94,7 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
 
         locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
 
-        locationListener = this::updateCameraPassengerLocation;
+         locationListener = this::updateCameraPassengerLocation;
 
         if (Build.VERSION.SDK_INT < 23){
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
@@ -103,9 +112,9 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                         0, 0, locationListener);
 
-                Location currnentPassengerLocation =
+                Location currentPassengerLocation =
                         locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                updateCameraPassengerLocation(currnentPassengerLocation);
+                updateCameraPassengerLocation(currentPassengerLocation);
             }
         }
     }
@@ -179,6 +188,8 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
 
                     });
 
+
+
                 } else {
 
                     FancyToast.makeText(PassengerActivity.this,
@@ -201,15 +212,39 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
 
                         uberRequest.deleteInBackground(e1 -> {
 
-                           if (e == null) {
-                               FancyToast.makeText(PassengerActivity.this,
-                                       "Your request is cancelled", FancyToast.LENGTH_SHORT,
-                                       FancyToast.INFO, false).show();
-                           }
+                            FancyToast.makeText(PassengerActivity.this,
+                                    "Your request is cancelled", FancyToast.LENGTH_SHORT,
+                                    FancyToast.INFO, false).show();
                         });
                     }
                 }
             });
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_driver, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.driverLogoutItem) {
+
+            ParseUser.logOutInBackground(e -> {
+
+                if (e == null) {
+                    finish();
+                }
+            });
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
