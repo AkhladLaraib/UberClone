@@ -1,7 +1,6 @@
 package com.example.uberclone;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -13,8 +12,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -220,31 +217,6 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
                 }
             });
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_driver, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.driverLogoutItem) {
-
-            ParseUser.logOutInBackground(e -> {
-
-                if (e == null) {
-                    finish();
-                }
-            });
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 }
