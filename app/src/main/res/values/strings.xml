@@ -19,4 +19,5 @@
     <string name="cancel_your_uber_request">Cancel Your Uber Request!!!</string>
     <string name="update_the_list">UPDATE THE LIST</string>
     <string name="passenger_list">Passenger List</string>
+    <string name="get_nearby_requests">GET NEARBY REQUESTS</string>
 </resources>

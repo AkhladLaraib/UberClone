@@ -18,12 +18,12 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btnUpdateList"
+        android:id="@+id/btnGetNearbyRequests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="#777373"
-        android:text="@string/update_the_list"
+        android:text="@string/get_nearby_requests"
         android:textColor="#FFFFFF"
         app:cornerRadius="5dp" />
 
